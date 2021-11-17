@@ -6,19 +6,29 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import {NavigationContainer} from '@react-navigation/native'
 import Layout from './app/layout';
-import Top from './app/layout/top';
+import Login from './app/screens/Login'
 import {StatusBar, useColorScheme} from 'react-native';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const [isLogged, setLogged] = useState(false)
+
+  const setLogState = useCallback(state => {
+     if(state === false){
+       return
+     }
+     setLogged(state)
+  },[])
   return (
     <NavigationContainer>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Top />
-      <Layout />
+      {isLogged ? 
+        <Layout />:
+        <Login setLogged={setLogState}/>
+      }
     </NavigationContainer>
   );
 };

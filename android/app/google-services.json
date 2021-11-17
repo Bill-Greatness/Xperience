@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "47563389294",
+    "firebase_url": "https://logicians-ghana.firebaseio.com",
+    "project_id": "logicians-ghana",
+    "storage_bucket": "logicians-ghana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47563389294:android:74f0e6ee4cabe2ba9aa97f",
+        "android_client_info": {
+          "package_name": "com.xperience"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47563389294-ekiddqo1s31kfjjai7m8chq20kjrp3ct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xperience",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "47563389294-8dv1nvulocctv6cki54a1udl434svepg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeu58He2kM4yDjUs5ZbJhVi4DDH_arOZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47563389294-8dv1nvulocctv6cki54a1udl434svepg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
