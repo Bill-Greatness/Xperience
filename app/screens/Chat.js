@@ -1,5 +1,4 @@
-/* eslint-disable quotes */
-/* eslint-disable prettier/prettier */
+
 import React from "react";
 import { View, Modal, Image, StyleSheet, Text, ScrollView, TouchableOpacity } from "react-native";
 import Ion from 'react-native-vector-icons/Ionicons'
@@ -89,9 +88,8 @@ const styles = StyleSheet.create({
 		margin:10,
 		display: "flex",
 		alignSelf: "flex-end",
-		padding: 10,
+		padding: 15,
 		width: "80%",
-		borderRadius: 5,
 	},
 	extra:{
 		borderTopWidth:StyleSheet.hairlineWidth,
@@ -100,37 +98,37 @@ const styles = StyleSheet.create({
 		display:"flex",
 		justifyContent:'flex-end',
 		alignItems:'center',
-		flexDirection:'row'
+		flexDirection:'row',
 	},
 	time:{
 		fontSize:12,
-		paddingHorizontal:5
+		paddingHorizontal:5,
 	},
 	actors:{
 		display:'flex',
 		flexDirection:'row',
 		alignItems:'center',
 		justifyContent:'space-between',
-		padding:10
+		padding:10,
 	},
 	avatar:{
 		width:30,
 		height:30,
 		resizeMode:'cover',
-		borderRadius:60
+		borderRadius:60,
 	},
 	authorName:{
 		fontSize:15,
 		fontWeight:'600',
 		color:'#000',
-		paddingHorizontal:3
+		paddingHorizontal:3,
 	},
 	innerSections:{
 		display:'flex',
 		alignItems:'center',
-		flexDirection:'row'
+		flexDirection:'row',
 	},
 	circled:{
-		borderRadius:100
-	}
+		borderRadius:100,
+	},
 });

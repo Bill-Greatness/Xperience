@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import testImage from '../assets/images/_.png';
 import {Comments, Posts, Interests} from '../components/profile';
-import Top from '../layout/top'
+import Top from '../layout/top';
 export default function Profile() {
   const [tile, setTile] = useState('Posts');
 
@@ -35,7 +35,6 @@ export default function Profile() {
     name: {
       fontSize: 20,
       color: '#000',
-      fontWeight: 'bold',
       textAlign: 'center',
       fontWeight: '200',
     },
@@ -62,6 +61,12 @@ export default function Profile() {
     stale: {
       borderBottomColor: 'currentColor',
     },
+    interestContainer: {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
   });
 
   const switchNode = (node) => {
@@ -72,13 +77,7 @@ export default function Profile() {
         return <Posts />;
       default:
         return (
-          <View
-            style={{
-              display: 'flex',
-              flex: 1,
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}>
+          <View style={styles.interestContainer}>
             {[1, 3, 4, 5, 6, 8, 9, 0, 99, 67, 45, 33, 56].map((idx) => (
               <View key={idx}>
                 <Interests />
@@ -90,7 +89,7 @@ export default function Profile() {
   };
   return (
     <SafeAreaView>
-        <Top />
+      <Top />
       <View style={styles.container}>
         <TouchableOpacity>
           <Image style={styles.profileImage} source={testImage} />

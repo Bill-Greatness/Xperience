@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StatusBar,
@@ -9,27 +9,26 @@ import {
   Button,
   StyleSheet,
   TouchableOpacity,
-} from 'react-native';
-import Ion from 'react-native-vector-icons/Ionicons';
-import testImage from '../assets/images/testBackground.jpg';
+} from "react-native";
+import Ion from "react-native-vector-icons/Ionicons";
+import testImage from "../assets/images/testBackground.jpg";
 
-export default function Login({setLogged}) {
+export default function Login({ setLogged }) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#ccc" />
       <ImageBackground
         style={styles.background}
         resizeMode="cover"
-        source={testImage}>
+        source={testImage}
+      >
         <View style={styles.welcome}>
           <Text style={styles.tagHeader}>Welcome to Xperience</Text>
           <Text style={styles.tagline}>You are Not Alone!</Text>
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={{color: 'blue', alignSelf: 'flex-start', padding: 15}}>
-            SOCIAL LOGIN
-          </Text>
+          <Text style={styles.loginLink}>SOCIAL LOGIN</Text>
           <View style={styles.socials}>
             <TouchableOpacity>
               <View style={styles.socialView}>
@@ -49,9 +48,7 @@ export default function Login({setLogged}) {
               </View>
             </TouchableOpacity>
           </View>
-          <Text style={{color: 'blue', alignSelf: 'flex-start', padding: 15}}>
-            CUSTOM LOGIN
-          </Text>
+          <Text style={styles.loginLink}>CUSTOM LOGIN</Text>
           <View>
             <TextInput
               placeholderTextColor="darkgray"
@@ -68,15 +65,9 @@ export default function Login({setLogged}) {
             />
           </View>
 
-          <Button
-            onPress={() => setLogged(true)}
-            style={{padding: 15}}
-            title="Continue"
-          />
+          <Button onPress={() => setLogged(true)} title="Continue" />
           <View>
-            <Text style={{color: 'blue', paddingVertical: 5}}>
-              Forgotten Password?
-            </Text>
+            <Text style={styles.linkTexts}>Forgotten Password?</Text>
           </View>
         </View>
       </ImageBackground>
@@ -87,49 +78,49 @@ export default function Login({setLogged}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
+    backgroundColor: "white",
+    alignItems: "center",
   },
   tagline: {
     fontSize: 17,
   },
   tagHeader: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 40,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   socials: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
     paddingVertical: 5,
   },
   inputContainer: {
-    backgroundColor: '#fff',
-    width: '95%',
-    height: '70%',
-    alignItems: 'center',
+    backgroundColor: "#fff",
+    width: "97%",
+    height: "70%",
+    alignItems: "center",
     borderTopRightRadius: 50,
   },
   inputs: {
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'black',
+    borderColor: "black",
     width: 300,
     marginVertical: 10,
   },
   background: {
     flex: 1,
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
   },
   welcome: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '45%',
+    alignItems: "center",
+    justifyContent: "center",
+    height: "45%",
   },
   socialView: {
     shadowOffset: {
@@ -138,12 +129,23 @@ const styles = StyleSheet.create({
     },
     borderRadius: 100,
     width: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     height: 50,
     padding: 10,
-    backgroundColor: '#ccc',
-    shadowColor: 'black',
+    backgroundColor: "#ccc",
+    shadowColor: "black",
     elevation: 5,
+  },
+  loginLink: {
+    color: "black",
+    alignSelf: "flex-start",
+    padding: 15,
+    fontWeight: "800",
+    letterSpacing:1.2
+  },
+  linkTexts: {
+    color: "blue",
+    
   },
 });
