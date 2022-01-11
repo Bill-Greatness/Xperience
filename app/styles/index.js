@@ -54,5 +54,23 @@ export const constants = StyleSheet.create({
         width:'100%',
         flex:1,
         height:'100%'
-    }
+    },
+	commentInput:{
+		display:'flex',
+		flexDirection:'row',
+		alignItems:'center',
+		justifyContent:'space-between',
+		position:'absolute',
+		bottom:0,
+		paddingHorizontal:15,
+		width:'100%',
+		backgroundColor:'#fff'
+	},
+	contentSummary: {
+		color: "black",
+		alignSelf: "flex-start",
+		paddingVertical: 15,
+		fontWeight: "800",
+		letterSpacing:1.2
+	},
 });

@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
+
 import { View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import Ion from 'react-native-vector-icons/Ionicons';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import {Chat} from '../screens';
+import {logOut} from '../components/functions'
 export default function Top() {
 	const currentRoute = useRoute().name;
 	const navigate = useNavigation();
@@ -34,7 +36,7 @@ export default function Top() {
 
 		if (currentRoute === 'Profile') {
 			return (
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => logOut()}>
 					<Ion name="log-out" size={24} color={'#000'} />
 				</TouchableOpacity>
 			);
@@ -50,6 +52,7 @@ export default function Top() {
 	const goHome = () => {
 		navigate.navigate('Posts');
 	}
+	
 	return (
 		<View style={styles.container}>
 			<View style={styles.child}>

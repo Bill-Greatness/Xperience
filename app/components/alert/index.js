@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'flex-start',
         alignItems:'center',
-        padding:3,
+        padding:5,
         backgroundColor:'#000',
         borderBottomColor:'#fff',
         borderBottomWidth:StyleSheet.hairlineWidth

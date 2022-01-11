@@ -27,7 +27,7 @@ export const Comments = () => (
 	</View>
 );
 
-export const Posts = () => (
+export const AuthorPost = ({data}) => (
 	<View style={styles.container}>
 		<View style={styles.comment}>
 			<View style={styles.postDetails}>
@@ -83,6 +83,7 @@ export {Info}
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor:'#fff',
 		display: "flex",
 		borderBottomColor: "darkgray",
 		borderBottomWidth: StyleSheet.hairlineWidth,
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
 		alignItem: "center",
 		justifyContent: "space-between",
 		paddingHorizontal: 15,
+		paddingVertical:10,
 	},
 	heading: {
 		fontWeight: "bold",

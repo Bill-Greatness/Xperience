@@ -1,13 +1,31 @@
 import { Share } from "react-native";
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
+
 
 type Post = {
-	title: string | null;
+	title: string;
 	content: string;
-	date: Date;
-	author: any;
+	datePosted: FirebaseFirestoreTypes.Timestamp;
+	authorId: FirebaseAuthTypes.User;
 };
 
-export const newPost = (content: Post) => {};
+export const getStore = (table:string) => {
+	return firestore().collection(table)
+}
+
+export const getDocuments = async (table:string, getData:Function) => {
+	const data = await getStore(table).get()
+	getData(data)
+}
+
+export const getDocument = (table:string, document:string) => {
+	return getStore(table).doc(document)
+}
+
+export const newPost = async (content: Post) => {
+	await getStore('Posts').add({...content})
+};
 
 export const onShare = async () => {
 	try {
@@ -26,5 +44,9 @@ export const onShare = async () => {
 		alert(err.message);
 	}
 };
+
+export const logOut = async () => {
+	await auth().signOut()
+}
 
 

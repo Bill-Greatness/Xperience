@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, SafeAreaView,ScrollView, Text, StyleSheet } from 'react-native'
-import {constants} from '../styles'
+import { View, SafeAreaView,ScrollView } from 'react-native'
 import {Notice} from '../components/alert'
 import {testNotice} from '../assets/data'
 
@@ -9,7 +8,7 @@ export default function Alert(){
    
 
     return(
-        <SafeAreaView style={constants.container}>
+        <SafeAreaView>
             <Top />
             <ScrollView>
                 {testNotice.map(ntc => (

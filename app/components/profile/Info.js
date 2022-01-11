@@ -2,9 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import { constants } from "../../styles";
 import testImage from "../../assets/images/_.png";
-import { ScrollView } from "react-native";
 
-import { renderItem } from "../functions/callers";
+
+import { renderPost } from "../functions/callers";
+
 import { testPost } from "../../assets/data";
 export default function ProfileInfo({ userId }) {
 	return (
@@ -30,7 +31,7 @@ export default function ProfileInfo({ userId }) {
 			<View style={styles.content}>
 			
 					<FlatList 
-                        renderItem={renderItem} 
+                        renderItem={renderPost} 
                         data={testPost}
                         keyExtractor={post => post.id}
                     />

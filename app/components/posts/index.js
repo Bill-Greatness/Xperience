@@ -12,7 +12,6 @@ import NewPost from "./new-post";
 import Ion from "react-native-vector-icons/Ionicons";
 import MCI from "react-native-vector-icons/MaterialCommunityIcons";
 import testImage from "../../assets/images/Flier.jpg";
-import { Details } from "./details";
 import { useNavigation } from "@react-navigation/native";
 import { ImageInfo } from "./images";
 
@@ -101,9 +100,13 @@ const styles = StyleSheet.create({
 		aspectRatio: 2.0,
 		resizeMode: "cover",
 	},
+	postCount: {
+		color: "black",
+		paddingHorizontal: 10,
+	},
 });
 
-const Author = ({ post, setVisible }) => {
+const Author = ({ post }) => {
 	const Navigator = useNavigation();
 
 	const goToProfile = (authorId) => {
@@ -111,6 +114,16 @@ const Author = ({ post, setVisible }) => {
 			screen: "Author",
 			params: {
 				authorId,
+			},
+		});
+	};
+
+	const goToPost = (postId) => {
+		return Navigator.navigate("Posts", {
+			screen: "Details",
+			params: {
+				postId,
+				actionType: "Post",
 			},
 		});
 	};
@@ -131,23 +144,27 @@ const Author = ({ post, setVisible }) => {
 				</View>
 			</TouchableOpacity>
 
-			<TouchableOpacity onPress={() => setVisible(true)}>
-				<Text style={{ color: "black", paddingHorizontal: 10 }}>1/3</Text>
+			<TouchableOpacity onPress={() => goToPost(55)}>
+				<Text style={styles.postCount}>1/3</Text>
 			</TouchableOpacity>
 		</View>
 	);
 };
 
 const Reactions = ({ postId }) => {
-	const [visible, setVisible] = useState(false);
+
+	const Navigator = useNavigation();
+	const goToComments = () => {
+		return Navigator.navigate("Posts", {
+			screen: "Details",
+			params: {
+				actionType: "Comments",
+				postId,
+			},
+		});
+	};
 	return (
 		<View style={styles.postActions}>
-			<Details
-				actionType="Comment"
-				postId={postId}
-				visible={visible}
-				setVisible={setVisible}
-			/>
 			<TouchableOpacity>
 				<View style={styles.postAction}>
 					<Ion name="ios-heart-outline" size={20} color={"#000"} />
@@ -155,7 +172,7 @@ const Reactions = ({ postId }) => {
 				</View>
 			</TouchableOpacity>
 
-			<TouchableOpacity onPress={() => setVisible(true)}>
+			<TouchableOpacity onPress={() => goToComments()}>
 				<View style={styles.postAction}>
 					<Ion name="md-chatbubbles-outline" size={20} color={"#000"} />
 					<Text style={styles.stats}>15</Text>
@@ -190,12 +207,6 @@ export const TextPost = ({ data }) => {
 	const [visible, setVisible] = useState(false);
 	return (
 		<View style={styles.postContainer}>
-			<Details
-				actionType="Post"
-				data={data}
-				visible={visible}
-				setVisible={setVisible}
-			/>
 			<Author post={data.meta} setVisible={setVisible} />
 			<TextContent data={data} />
 			<Reactions />
@@ -207,12 +218,6 @@ export const ImagePost = ({ data }) => {
 	const [visible, setVisible] = useState(false);
 	return (
 		<View style={styles.postContainer}>
-			<Details
-				data={data}
-				visible={visible}
-				setVisible={setVisible}
-				actionType="Post"
-			/>
 			<Author post={data.meta} setVisible={setVisible} />
 			{data.content.length > 0 ? (
 				<>

@@ -1,5 +1,5 @@
-/* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import {
 	SafeAreaView,
 	TouchableHighlight,
@@ -10,12 +10,16 @@ import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 import Top from '../layout/top';
 import { NewPost } from '../components/posts';
 import { testPost } from '../assets/data';
-
+import {getPosts} from '../providers/posts'
 import {renderItem} from '../components/functions/callers'
 
 export default function Posts() {
 	const [visible, setVisible] = useState(false);
+	const [posts, setPosts] = useState([])
 
+	useEffect(() => {
+		getPosts( async (data) => setPosts(data))
+	},[])
 
 	return (
 		<SafeAreaView style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		width: 50,
 		height: 50,
-		backgroundColor: '#000',
+		backgroundColor: '#333',
 		borderRadius: 100,
 		justifyContent: 'center',
 		alignItems: 'center',

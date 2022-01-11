@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import auth from '@react-native-firebase/auth'
 import {
   SafeAreaView,
   ScrollView,
@@ -9,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import testImage from '../assets/images/_.png';
-import {Comments, Posts, Interests} from '../components/profile';
+import {Comments, AuthorPost, Interests} from '../components/profile';
 import Top from '../layout/top';
 export default function Profile() {
   const [tile, setTile] = useState('Posts');
@@ -74,7 +75,7 @@ export default function Profile() {
       case 'Comments':
         return <Comments />;
       case 'Posts':
-        return <Posts />;
+        return <AuthorPost />;
       default:
         return (
           <View style={styles.interestContainer}>
@@ -89,13 +90,13 @@ export default function Profile() {
   };
   return (
     <SafeAreaView>
-      <Top />
+      <Top /> 
       <View style={styles.container}>
         <TouchableOpacity>
-          <Image style={styles.profileImage} source={testImage} />
+          <Image style={styles.profileImage} source={{uri:auth().currentUser.photoURL}} />
         </TouchableOpacity>
         <View>
-          <Text style={styles.name}>Bill Greatness Clinton</Text>
+          <Text style={styles.name}>{auth().currentUser.displayName}</Text>
           <Text style={styles.joined}>Joined: 02/02/2022</Text>
         </View>
       </View>
