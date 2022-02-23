@@ -1,6 +1,7 @@
 import { Share } from "react-native";
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
+import functions from '@react-native-firebase/functions'
 
 
 type Post = {
@@ -49,4 +50,8 @@ export const logOut = async () => {
 	await auth().signOut()
 }
 
+export const getFunc = (name:string) => {
+	functions().useFunctionsEmulator("http://localhost:5001")
+	return functions().httpsCallable(name)
+}
 

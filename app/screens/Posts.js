@@ -12,15 +12,31 @@ import { NewPost } from '../components/posts';
 import { testPost } from '../assets/data';
 import {getPosts} from '../providers/posts'
 import {renderItem} from '../components/functions/callers'
+import {getFunc} from '../components/functions'
+import auth from "@react-native-firebase/auth";
 
 export default function Posts() {
 	const [visible, setVisible] = useState(false);
 	const [posts, setPosts] = useState([])
 
+	const authorInfo = getFunc('getAuthorInfo')
+	
 	useEffect(() => {
 		getPosts( async (data) => setPosts(data))
 	},[])
 
+	const getInfo = async () => {
+		try{
+			await authorInfo({
+				authorId: auth().currentUser.uid
+			})
+		}catch(e){
+			console.log(e)
+		}
+		
+	}
+	
+	getInfo()
 	return (
 		<SafeAreaView style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
 			<Top />
