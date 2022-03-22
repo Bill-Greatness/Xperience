@@ -1778,6 +1778,16 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/functions/-/functions-14.2.2.tgz#79a367c5b86479c163fc9b866feb545bdf33de5e"
   integrity sha512-sOlkbUcXo3NKj2fWereE53eQbv06zduUGGm2QjDZ/m3AOO+D9lDh1j5JcBFpSeKdfiooTGrGTV1IUYof5ORJ6Q==
 
+"@react-native-firebase/messaging@^14.5.1":
+  version "14.5.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-14.5.1.tgz#7ce7810f70cf37df9a871eb70c6a89166deecabf"
+  integrity sha512-qcsPlenHWJQBCExAYyeGZfkoDvFjpXdZj+7R4JlZ8zgy42R2IGgXOcu1UbdjfkTPYJZHrJZuZHLIn8aKq54R7A==
+
+"@react-native-firebase/storage@^14.5.1":
+  version "14.5.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-14.5.1.tgz#e22e74732a9565d90a359f51bc6249a0efffde02"
+  integrity sha512-QGLJ5IanXhFfhefwH61rvz7cNRFkFs7X90djBqfhKwIeh7ASN9YZLBaME0k/nyLkWnwN5HCfqi4kdVzVhlNkMQ==
+
 "@react-native-google-signin/google-signin@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-7.0.1.tgz#a03f1a3e43ddb1bb092679bfdd6e38ff6ed819a1"

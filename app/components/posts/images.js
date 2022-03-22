@@ -1,10 +1,9 @@
 import React from "react";
 import { Modal, View, Image, StyleSheet } from "react-native";
-import testImage from "../../assets/images/Flier.jpg";
 import { constants } from "../../styles";
 import ReactNativeZoomableView from "@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView";
 
-export const ImageInfo = ({ show, setShow }) => (
+export const ImageInfo = ({ show, setShow, uri }) => (
 	<Modal
 		visible={show}
 		onRequestClose={() => setShow(false)}
@@ -23,7 +22,7 @@ export const ImageInfo = ({ show, setShow }) => (
 			<View style={styles.imageModalView}>
 				<Image
 					style={constants.modalImage}
-					source={testImage}
+					source={{uri}}
 					resizeMode="contain"
 				/>
 			</View>

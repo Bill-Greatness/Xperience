@@ -23,6 +23,7 @@ export const constants = StyleSheet.create({
 	},
 	authorName: {
         fontSize:17,
+		paddingHorizontal:10,
         color:'#000'
     },
     subInfo:{
